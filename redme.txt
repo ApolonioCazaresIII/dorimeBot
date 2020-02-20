@@ -1,0 +1,2 @@
+activate venv = \Scripts\activate.bat
+run bot = cd \bot\ && python bot.py
