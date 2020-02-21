@@ -19,9 +19,9 @@ Commands:
 
     `(Ememy AC) (Player ammo AC pen) (player skill) (1d100 roll) (Targeted Attack/Burst Attack penalties) (Player stance mod) (Enemy stance mod)       (Weapon condition pen) (Environment mod) (Vehicle mod) (Enemy cover pen) (Other hit Chance bonuses)`
     
-    For example, attacking a mole rat (AC = 7). Using .357 (Ammo AC pen = 7). Player skill in small guns is 100. 1d100 resulted in 25. Using single attack, Standing and enemy is standing. Weapon is in perfect condition. Weather is clear and sunny (day time). Player is not in a vehicle. Enemy is out in the open. No other hit chance bonuses (player is low level and thus has no perks)
+    For example, attacking a mole rat (AC = 7). Using .357 (Ammo AC pen = -7). Player skill in small guns is 100. 1d100 resulted in 25. Using single attack, Standing and enemy is standing. Weapon is in perfect condition. Weather is clear and sunny (day time). Player is not in a vehicle. Enemy is out in the open. No other hit chance bonuses (player is low level and thus has no perks)
     
-    `.hit 7 7 100 25 0 0 0 0 0 0 0 0`
+    `.hit 7 -7 100 25 0 0 0 0 0 0 0 0`
     
     
 1. `.skill input` 
