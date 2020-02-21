@@ -51,3 +51,7 @@ Navigate to the bot folder
 
 Type command `python bot.py`
 
+### When cloning
+Make sure to install package
+
+`pip install -U discord.py[voice]`
