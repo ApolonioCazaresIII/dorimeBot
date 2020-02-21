@@ -55,11 +55,11 @@ async def _8ball(ctx, *, question):
 async def hit(ctx, *, input):
     if input == None:
         await ctx.send(f'Nibba enter the values')
-    enmy_ac, plyr_ammo_ac_pen, roll_skill, ta_ba_pen, \
+    enmy_ac, plyr_ammo_ac_pen,ply_skill, roll_skill, ta_ba_pen, \
     plyr_stance, enmy_stance, cond_pen, \
     env_mod, veh_mod, cov_pena, hc_bonus = input.split()
     enAcLeft = int(enmy_ac) + int(plyr_ammo_ac_pen)
-    MHC = int(roll_skill) + int(ta_ba_pen) + int(plyr_stance) + int(enmy_stance) + \
+    MHC = (int(ply_skill) -int(roll_skill)) + int(ta_ba_pen) + int(plyr_stance) + int(enmy_stance) + \
           int(cond_pen) + int(env_mod) + int(veh_mod) - int(enAcLeft) + int(cov_pena) + int(hc_bonus)
     if MHC >= 0:
         print(f'Result:{MHC}, Hit Successful!')
