@@ -8,7 +8,7 @@ Commands:
     
     `(1d10 roll result) (Actual special amount) (special penalty)`
     
-    Example, rolling for luck with skill amount 5, 1d10 = 6, penalty = 1
+    Example: rolling for luck with skill amount 5, 1d10 = 6, penalty = 1
     
     `.spec 6 5 1`
 
@@ -30,7 +30,7 @@ Commands:
     
     `(1d100 roll result) (Actual skill amount) (skill penalty)`
     
-    Example, rolling for Small guns with 1d100 = 14, skill amount 100, penalty = 10
+    Example: rolling for Small guns with 1d100 = 14, skill amount 100, penalty = 10
     
     `.skill 14 100 10`
     
@@ -38,13 +38,30 @@ Commands:
 1. `.dmg input`
 
     This is not fully implemented yet
+    
+    However, it will go something like this
+    
+    `(((dmg from rolls x (1 + player dmg bonuses)) – Enemy DT) x (1.0 - Enemy DR)) = RU`
+    
+    Example: Attacking a raider with dmg rolls resulting in 23, 15% dmg bonus, enemy raider armor DT is 5 and enemy raider DR is 25%
+    
+    `.dmg 23 .15  5 .25` Result is 17 rounded up and 16.0875 unrounded
+
  
 ### Terminology
 `AC` = Armor Class
 
-`pen` = penalty
+`pen` = Penalty
 
-`mod` = modifier
+`mod` = Modifier
+
+`RU` = Round Up
+
+`DT` = Damage Threshold (comes from equipment doc, is from armor)
+
+`DR` = Damage Resistance (comes from equipment doc, is from armor)
+
+`dmg` = Damage
 
 ### Running bot
 Navigate to the bot folder
