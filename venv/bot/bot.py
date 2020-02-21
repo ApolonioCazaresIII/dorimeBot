@@ -1,5 +1,6 @@
 import discord
 import random
+import math
 from discord.ext import commands
 
 
@@ -24,6 +25,10 @@ async def oi(ctx):
 @client.command()
 async def ping(ctx):
     await ctx.send(f'Bruh you got that Mcdonald\'s connection: {round(client.latency * 1000)}ms')
+
+@client.command()
+async def helpme(ctx):
+    await ctx.send("Oh, you want help? \n Go here https://github.com/ApolonioCazaresIII/dorimeBot")
 
 @client.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
@@ -50,6 +55,20 @@ async def _8ball(ctx, *, question):
         "Very doubtful.",
         "Nah fam..."]
     await ctx.send(f'This was your boujee question: {question}\nAnswer: {random.choice(responses)}')
+
+def round_up(n, decimals=0):
+    multiplier = 10 ** decimals
+    return math.ceil(n * multiplier) / multiplier
+
+@client.command()
+async def dmg(ctx, *, input):
+    if input == None:
+        await ctx.send(f'Nibba enter the values')
+    else:
+        dmg_roll, dmg_mods, enemy_dt, enemy_dr = input.split()
+        result = ((float(dmg_roll) * (1.0 + float(dmg_mods)) - float(enemy_dt)) * (1.0 - float(enemy_dr)))
+        mess = round_up(result)
+        await ctx.send(f'Result rounded up: {mess}, unrounded: {result}')
 
 @client.command()
 async def hit(ctx, *, input):
@@ -116,5 +135,10 @@ async def sacredtext(ctx):
             'Nina by my side promise you it’s all be fine\n'
     await ctx.send(theText)
 
+
+@client.command(pass_context=True)
+async def join(ctx):
+    channel = ctx.message.author.voice.voice_channel
+    await client.join_voice_channel(channel)
 
 client.run('NjM2MDU3ODIzNDI3NjkwNTA4.Xa6GGQ.enRgdcbq-ftfqcYDcyNvqNr4-_U')
