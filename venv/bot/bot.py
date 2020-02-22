@@ -78,6 +78,8 @@ async def hit(ctx, *, input):
     plyr_stance, enmy_stance, cond_pen, \
     env_mod, veh_mod, cov_pena, hc_bonus = input.split()
     enAcLeft = int(enmy_ac) + int(plyr_ammo_ac_pen)
+    if enAcLeft < 0:
+        enAcLeft = 0
     MHC = (int(ply_skill) -int(roll_skill)) + int(ta_ba_pen) + int(plyr_stance) + int(enmy_stance) + \
           int(cond_pen) + int(env_mod) + int(veh_mod) - int(enAcLeft) + int(cov_pena) + int(hc_bonus)
     if MHC >= 0:
@@ -136,9 +138,14 @@ async def sacredtext(ctx):
     await ctx.send(theText)
 
 
-@client.command(pass_context=True)
+@client.command()
 async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await client.join_voice_channel(channel)
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
 
-client.run('NjM2MDU3ODIzNDI3NjkwNTA4.Xa6GGQ.enRgdcbq-ftfqcYDcyNvqNr4-_U')
+# @client.command()
+# async def leave(ctx):
+#     channel = ctx.message.author.voice.channel
+#     await client.disconnect()
+
+client.run('NjM2MDU3ODIzNDI3NjkwNTA4.XlCfwQ.7-PXweKNiqN7VKUTKeb53m13oTE')
