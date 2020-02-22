@@ -63,6 +63,12 @@ Commands:
 
 `dmg` = Damage
 
+
+### Luck handling
+1. Roll 1d10
+
+1. 1 is the best, 10 is the worst
+
 ### Running bot
 Navigate to the bot folder
 
